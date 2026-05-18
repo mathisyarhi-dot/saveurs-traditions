@@ -1,0 +1,1584 @@
+/* ==========================================================================
+   Saveurs & Traditions — style.css
+   Architecture : Mobile-First
+   Breakpoints  : base = mobile · min-width:769px = tablette/desktop
+   ========================================================================== */
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
+:root {
+  /* Couleurs */
+  --blanc-chaud   : #FCF8EE;
+  --creme         : #F8F2E8;
+  --creme-fonce   : #EFE6D5;
+  --miel          : #B8832A;
+  --miel-clair    : #D4A855;
+  --miel-pale     : #F5E8CC;
+  --brun-profond  : #2E1C0A;
+  --brun-moyen    : #5C3A1E;
+  --brun-clair    : #8B6043;
+  --gris-chaud    : #7A6A58;
+
+  /* Rôles sémantiques */
+  --fg-1          : var(--brun-profond);
+  --fg-2          : var(--gris-chaud);
+  --fg-on-dark-1  : var(--blanc-chaud);
+  --fg-on-dark-2  : #CFC1A8;
+
+  /* Bordures */
+  --border-subtle : rgba(46, 28, 10, .10);
+  --border-dark   : rgba(212, 168, 85, .25);
+  --divider-gold  : linear-gradient(90deg, transparent, rgba(184,131,42,.4) 50%, transparent);
+
+  /* Typographies */
+  --font-display  : 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-text     : 'DM Sans', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Rayons */
+  --r-block  : 3px;
+  --r-pill   : 20px;
+  --r-circle : 50%;
+
+  /* Transitions */
+  --ease   : cubic-bezier(.4, 0, .2, 1);
+  --t-fast : 160ms var(--ease);
+  --t-mid  : 280ms var(--ease);
+  --t-slow : 480ms var(--ease);
+
+  /* Layout — mobile par défaut */
+  --maxw      : 1280px;
+  --pad-x     : 1.5rem;
+  --pad-y     : 3rem;
+  --topbar-h  : 64px;
+}
+
+/* Surcharge desktop */
+@media (min-width: 769px) {
+  :root {
+    --pad-x    : 4rem;
+    --pad-y    : 5rem;
+    --topbar-h : 78px;
+  }
+}
+
+/* ==========================================================================
+   2. RESET
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--topbar-h);
+}
+
+body {
+  background    : var(--blanc-chaud);
+  color         : var(--fg-2);
+  font-family   : var(--font-text);
+  font-weight   : 300;
+  font-size     : .9rem;
+  line-height   : 1.85;
+  -webkit-font-smoothing  : antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: inherit; text-decoration: none; }
+
+button {
+  font      : inherit;
+  cursor    : pointer;
+  border    : 0;
+  background: none;
+  color     : inherit;
+}
+
+input, textarea, select { font: inherit; color: inherit; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+p  { margin: 0; }
+
+/* ==========================================================================
+   3. TYPOGRAPHIE
+   ========================================================================== */
+h1, h2, h3 {
+  font-family : var(--font-display);
+  font-weight : 300;
+  color       : var(--fg-1);
+  margin      : 0;
+  line-height : 1.12;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.3rem); letter-spacing: -.005em; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h3 { font-weight: 400; font-size: 1.2rem; line-height: 1.25; }
+
+/* Mot clé en italique doré — cœur visuel de la marque */
+em.acc, .acc {
+  font-style  : italic;
+  color       : var(--miel);
+  font-weight : 300;
+}
+
+/* ==========================================================================
+   4. UTILITAIRES
+   ========================================================================== */
+
+/* Eyebrow label */
+.eyebrow {
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .65rem;
+  text-transform : uppercase;
+  letter-spacing : .22em;
+  color          : var(--miel);
+  display        : inline-block;
+}
+
+/* Ornement ✦ ✦ ✦ */
+.ornament {
+  text-align     : center;
+  color          : var(--miel);
+  opacity        : .32;
+  font-family    : var(--font-display);
+  font-size      : 1.1rem;
+  letter-spacing : 1.4em;
+  padding-left   : 1.4em;
+  margin         : 0;
+}
+
+/* Séparateur dégradé doré */
+.divider {
+  height     : 1px;
+  background : var(--divider-gold);
+  width      : 100%;
+}
+
+/* ==========================================================================
+   5. SECTIONS
+   ========================================================================== */
+.section {
+  padding    : var(--pad-y) var(--pad-x);
+  background : var(--blanc-chaud);
+}
+
+.section--creme { background: var(--creme); }
+
+.section--dark {
+  background : var(--brun-profond);
+  color      : var(--fg-on-dark-2);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3 { color: var(--fg-on-dark-1); }
+
+.section--dark .eyebrow { color: var(--miel-clair); }
+.section--dark em.acc, .section--dark .acc { color: var(--miel-clair); }
+
+/* En-tête de section centré */
+.section__head {
+  max-width   : 720px;
+  margin      : 0 auto 2.5rem;
+  text-align  : center;
+}
+
+.section__head .eyebrow { margin-bottom: 14px; }
+
+.section__head p {
+  margin     : 14px auto 0;
+  max-width  : 540px;
+  font-size  : .9rem;
+}
+
+@media (min-width: 769px) {
+  .section__head { margin-bottom: 3.5rem; }
+  .section__head .eyebrow { margin-bottom: 18px; }
+}
+
+/* ==========================================================================
+   6. BOUTONS
+   ========================================================================== */
+.btn {
+  display        : inline-flex;
+  align-items    : center;
+  gap            : 10px;
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .7rem;
+  text-transform : uppercase;
+  letter-spacing : .16em;
+  padding        : 14px 22px;
+  border-radius  : var(--r-block);
+  border         : 1px solid transparent;
+  line-height    : 1;
+  cursor         : pointer;
+  transition     : background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+  white-space    : nowrap;
+}
+
+.btn .ti { font-size: 1.05rem; }
+
+.btn--primary {
+  background   : var(--miel);
+  color        : #fff;
+  border-color : var(--miel);
+}
+.btn--primary:hover  { background: #A5731F; border-color: #A5731F; }
+.btn--primary:active { background: #8E631A; }
+
+.btn--glass {
+  background   : transparent;
+  color        : var(--fg-on-dark-1);
+  border-color : rgba(212, 168, 85, .5);
+}
+.btn--glass:hover { border-color: var(--miel-clair); color: var(--miel-clair); }
+
+.btn--ghost {
+  background   : transparent;
+  color        : var(--fg-1);
+  border-color : rgba(46, 28, 10, .25);
+}
+.btn--ghost:hover { border-color: var(--miel); color: var(--miel); }
+
+/* ==========================================================================
+   7. PILLS / TAGS
+   ========================================================================== */
+.pill {
+  display        : inline-flex;
+  align-items    : center;
+  gap            : 7px;
+  background     : var(--miel-pale);
+  color          : var(--brun-moyen);
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .63rem;
+  padding        : 5px 11px;
+  border-radius  : var(--r-pill);
+  letter-spacing : .04em;
+}
+
+.pill .ti { font-size: .82rem; color: var(--miel); }
+
+/* ==========================================================================
+   8. CERCLES D'ICÔNES
+   ========================================================================== */
+.icon-circle {
+  width         : 36px;
+  height        : 36px;
+  border-radius : var(--r-circle);
+  background    : var(--miel-pale);
+  border        : 1px solid rgba(184, 131, 42, .35);
+  color         : var(--miel);
+  display       : inline-flex;
+  align-items   : center;
+  justify-content: center;
+  flex          : 0 0 36px;
+}
+
+.icon-circle .ti {
+  font-size   : 1rem;
+  line-height : 1;
+  display     : block;
+}
+
+.icon-circle .icon-img {
+  width       : 18px;
+  height      : 18px;
+  display     : block;
+  object-fit  : contain;
+  filter      : brightness(0) saturate(100%) invert(48%) sepia(56%) saturate(602%)
+                hue-rotate(2deg) brightness(94%) contrast(86%);
+}
+
+/* Variante sur fond sombre */
+.icon-circle--dark {
+  background   : rgba(212, 168, 85, .10);
+  border-color : rgba(212, 168, 85, .32);
+  color        : var(--miel-clair);
+}
+
+.icon-circle--dark .icon-img {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(28%) saturate(632%)
+          hue-rotate(2deg) brightness(94%) contrast(86%);
+}
+
+/* ==========================================================================
+   9. ZONES PHOTO UPLOADABLES (.uzone)
+   ========================================================================== */
+.uzone {
+  position      : relative;
+  overflow      : hidden;
+  cursor        : pointer;
+  background    : var(--creme-fonce);
+  border-radius : var(--r-block);
+  display       : block;
+}
+
+.uzone--dark { background: rgba(212, 168, 85, .07); }
+
+/* Input caché sur toute la surface */
+.uzone input[type="file"] {
+  position : absolute;
+  inset    : 0;
+  width    : 100%;
+  height   : 100%;
+  opacity  : 0;
+  cursor   : pointer;
+  z-index  : 3;
+}
+
+/* État vide : icône + label centré */
+.uzone__empty {
+  position        : absolute;
+  inset           : 0;
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
+  justify-content : center;
+  gap             : 10px;
+  transition      : opacity var(--t-mid);
+  pointer-events  : none;
+}
+
+.uzone__empty .ti {
+  font-size   : 1.7rem;
+  line-height : 1;
+  color       : rgba(184, 131, 42, .75);
+}
+
+.uzone__empty .icon-img {
+  width      : 30px;
+  height     : 30px;
+  display    : block;
+  object-fit : contain;
+  opacity    : .7;
+  filter     : brightness(0) saturate(100%) invert(48%) sepia(56%) saturate(602%)
+               hue-rotate(2deg) brightness(94%) contrast(86%);
+}
+
+.uzone--dark .uzone__empty .ti    { color: rgba(212, 168, 85, .7); }
+.uzone--dark .uzone__empty .icon-img {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(28%) saturate(632%)
+          hue-rotate(2deg) brightness(94%) contrast(86%);
+}
+
+.uzone__empty .label {
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .55rem;
+  text-transform : uppercase;
+  letter-spacing : .24em;
+  color          : rgba(46, 28, 10, .5);
+}
+
+.uzone--dark .uzone__empty .label { color: rgba(207, 193, 168, .55); }
+
+/* Overlay hover — icône + "Ajouter" */
+.uzone__hover {
+  position        : absolute;
+  inset           : 0;
+  z-index         : 2;
+  background      : rgba(46, 28, 10, .5);
+  opacity         : 0;
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
+  justify-content : center;
+  gap             : 8px;
+  color           : #fff;
+  font-family     : var(--font-text);
+  font-weight     : 500;
+  font-size       : .62rem;
+  text-transform  : uppercase;
+  letter-spacing  : .22em;
+  transition      : opacity var(--t-mid);
+  pointer-events  : none;
+}
+
+.uzone__hover .ti { font-size: 1.3rem; }
+
+.uzone:hover .uzone__hover     { opacity: 1; }
+
+/* Prévisualisation photo */
+.uzone .img-prev {
+  position            : absolute;
+  inset               : 0;
+  background-size     : cover;
+  background-position : center;
+  transition          : transform 600ms var(--ease);
+}
+
+.uzone:hover .img-prev        { transform: scale(1.03); }
+
+/* Photo chargée : masquer l'état vide */
+.uzone.loaded .uzone__empty    { opacity: 0; }
+.uzone.loaded .uzone__hover    { background: rgba(46, 28, 10, .55); }
+
+/* ==========================================================================
+   10. NAV — mobile d'abord
+   ========================================================================== */
+.site-nav {
+  position            : sticky;
+  top                 : 0;
+  z-index             : 60;
+  background          : rgba(252, 248, 238, .92);
+  backdrop-filter     : saturate(1.1) blur(10px);
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
+  border-bottom       : 1px solid var(--border-subtle);
+  transition          : box-shadow var(--t-mid);
+}
+
+.site-nav--scrolled {
+  box-shadow: 0 2px 18px rgba(46, 28, 10, .08);
+}
+
+.nav__inner {
+  max-width       : var(--maxw);
+  margin          : 0 auto;
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  gap             : 1rem;
+  padding         : 12px var(--pad-x);
+}
+
+/* Marque */
+.nav__brand {
+  display     : flex;
+  align-items : center;
+  gap         : 11px;
+  flex-shrink : 0;
+}
+
+.nav__brand img {
+  width         : 38px;
+  height        : 38px;
+  border-radius : var(--r-circle);
+}
+
+.nav__brand .name {
+  font-family    : var(--font-display);
+  font-weight    : 400;
+  font-size      : .95rem;
+  color          : var(--fg-1);
+  letter-spacing : .04em;
+  line-height    : 1;
+  white-space    : nowrap;
+}
+
+/* Liens de navigation — cachés sur mobile */
+.nav__links {
+  display        : none;
+  position       : absolute;
+  top            : 100%;
+  left           : 0;
+  right          : 0;
+  flex-direction : column;
+  gap            : 0;
+  background     : var(--blanc-chaud);
+  border-bottom  : 1px solid var(--border-subtle);
+  padding        : .8rem 0;
+  box-shadow     : 0 8px 24px rgba(46, 28, 10, .08);
+}
+
+.nav__links.open { display: flex; }
+
+.nav__links a {
+  font-family    : var(--font-text);
+  font-weight    : 400;
+  font-size      : .78rem;
+  text-transform : uppercase;
+  letter-spacing : .2em;
+  color          : var(--fg-1);
+  padding        : 13px var(--pad-x);
+  border-bottom  : 1px solid var(--border-subtle);
+  transition     : color var(--t-fast);
+}
+
+.nav__links a:last-child { border-bottom: 0; }
+.nav__links a:hover      { color: var(--miel); }
+
+/* Actions droite */
+.nav__actions {
+  display     : flex;
+  gap         : .5rem;
+  align-items : center;
+  flex-shrink : 0;
+}
+
+/* CTA téléphone */
+.nav__cta {
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .66rem;
+  text-transform : uppercase;
+  letter-spacing : .14em;
+  padding        : 10px 14px;
+  background     : var(--brun-profond);
+  color          : #fff;
+  border-radius  : var(--r-block);
+  display        : inline-flex;
+  align-items    : center;
+  gap            : 8px;
+  white-space    : nowrap;
+  transition     : background var(--t-fast);
+}
+
+.nav__cta:hover { background: #3F2710; }
+.nav__cta .ti   { font-size: .9rem; color: var(--miel-clair); }
+
+/* Masquer le texte du numéro sur petit mobile */
+.nav__cta .nav__cta-label { display: none; }
+
+/* Burger */
+.burger {
+  display         : inline-flex;
+  width           : 40px;
+  height          : 40px;
+  align-items     : center;
+  justify-content : center;
+  color           : var(--fg-1);
+  font-size       : 1.4rem;
+  border-radius   : var(--r-block);
+  transition      : background var(--t-fast);
+  flex-shrink     : 0;
+}
+
+.burger:hover { background: rgba(46, 28, 10, .06); }
+
+/* Desktop nav */
+@media (min-width: 769px) {
+  .nav__inner   { padding: 14px var(--pad-x); gap: 2rem; }
+  .nav__brand img { width: 44px; height: 44px; }
+  .nav__brand .name { font-size: 1.05rem; }
+
+  .nav__links {
+    display        : flex;
+    position       : static;
+    flex-direction : row;
+    gap            : 28px;
+    background     : none;
+    border-bottom  : 0;
+    padding        : 0;
+    box-shadow     : none;
+  }
+
+  .nav__links a {
+    font-size  : .7rem;
+    padding    : 8px 0;
+    border     : 0;
+    position   : relative;
+  }
+
+  /* Soulignement animé gauche→droite */
+  .nav__links a::after {
+    content    : '';
+    position   : absolute;
+    left       : 0;
+    right      : 100%;
+    bottom     : 0;
+    height     : 1px;
+    background : var(--miel);
+    transition : right 220ms var(--ease);
+  }
+
+  .nav__links a:hover::after { right: 0; }
+  .nav__links a:hover        { color: var(--fg-1); }
+
+  .nav__cta-label { display: inline; }
+  .burger         { display: none; }
+}
+
+/* ==========================================================================
+   11. HERO — mobile d'abord
+   ========================================================================== */
+.hero {
+  display                : grid;
+  grid-template-columns  : 1fr;
+  background             : var(--brun-profond);
+}
+
+/* Photo en haut sur mobile */
+.hero__right {
+  order    : 1;
+  height   : 480px;
+  position : relative;
+  overflow : hidden;
+}
+
+/* Contenu en bas sur mobile */
+.hero__left {
+  order           : 2;
+  padding         : 2.5rem var(--pad-x);
+  display         : flex;
+  flex-direction  : column;
+  justify-content : center;
+  color           : var(--fg-on-dark-2);
+}
+
+.hero__logo {
+  width           : 88px;
+  height          : 88px;
+  border-radius   : var(--r-circle);
+  margin-bottom   : 1.6rem;
+  background      : var(--blanc-chaud);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  box-shadow      : 0 0 0 1px rgba(212, 168, 85, .35);
+}
+
+.hero__logo img {
+  width         : 78px;
+  height        : 78px;
+  border-radius : var(--r-circle);
+}
+
+.hero__eyebrow {
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .63rem;
+  text-transform : uppercase;
+  letter-spacing : .3em;
+  color          : var(--miel-clair);
+  margin-bottom  : 1.2rem;
+  display        : block;
+}
+
+.hero h1 {
+  color         : var(--fg-on-dark-1);
+  margin-bottom : 1.1rem;
+  font-weight   : 300;
+}
+
+.hero h1 em { color: var(--miel-clair); font-style: italic; }
+
+.hero__tagline {
+  font-family   : var(--font-display);
+  font-style    : italic;
+  font-weight   : 400;
+  font-size     : 1.2rem;
+  line-height   : 1.5;
+  color         : var(--miel-clair);
+  margin-bottom : 2rem;
+  max-width     : 520px;
+}
+
+.hero__actions {
+  display         : flex;
+  gap             : 12px;
+  align-items     : center;
+  flex-wrap       : wrap;
+  margin-bottom   : 2.2rem;
+}
+
+/* Bloc infos pratiques */
+.hero__meta {
+  display         : flex;
+  flex-direction  : column;
+  gap             : 16px;
+  padding-top     : 1.6rem;
+  border-top      : 1px solid var(--border-dark);
+  max-width       : 520px;
+}
+
+.hero__meta li {
+  display     : flex;
+  gap         : 12px;
+  align-items : flex-start;
+}
+
+.hero__meta .label {
+  display        : block;
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .54rem;
+  text-transform : uppercase;
+  letter-spacing : .24em;
+  color          : var(--miel-clair);
+  margin-bottom  : 2px;
+}
+
+.hero__meta .value {
+  font-family : var(--font-text);
+  font-weight : 400;
+  font-size   : .82rem;
+  color       : var(--fg-on-dark-1);
+  line-height : 1.45;
+}
+
+/* Badge Ouvert/Fermé */
+.hero__badge {
+  position       : absolute;
+  top            : 16px;
+  right          : 16px;
+  z-index        : 2;
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .58rem;
+  text-transform : uppercase;
+  letter-spacing : .22em;
+  padding        : 7px 12px;
+  border-radius  : var(--r-pill);
+  background     : rgba(46, 28, 10, .72);
+  color          : #4CAF50;
+  backdrop-filter: blur(6px);
+  border         : 1px solid rgba(212, 168, 85, .2);
+}
+
+/* Zone photo hero */
+.hero__right .uzone {
+  position      : absolute;
+  inset         : 0;
+  border-radius : 0;
+}
+
+/* Citation avis en overlay bas */
+.hero__quote {
+  position   : absolute;
+  left       : 0;
+  right      : 0;
+  bottom     : 0;
+  z-index    : 2;
+  padding    : 1.6rem;
+  background : linear-gradient(180deg, transparent 0%, rgba(46,28,10,.45) 35%, rgba(46,28,10,.88) 100%);
+  color      : #fff;
+  border-top : 1px solid var(--miel-clair);
+}
+
+.hero__quote .stars {
+  display       : flex;
+  gap           : 2px;
+  color         : var(--miel-clair);
+  font-size     : .8rem;
+  margin-bottom : 7px;
+}
+
+.hero__quote blockquote {
+  font-family : var(--font-display);
+  font-style  : italic;
+  font-weight : 300;
+  font-size   : .95rem;
+  line-height : 1.55;
+  margin      : 0 0 8px;
+}
+
+.hero__quote cite {
+  font-family    : var(--font-text);
+  font-style     : normal;
+  font-weight    : 500;
+  font-size      : .58rem;
+  text-transform : uppercase;
+  letter-spacing : .22em;
+  color          : var(--miel-clair);
+}
+
+/* Desktop hero — split 50/50 */
+@media (min-width: 769px) {
+  .hero {
+    grid-template-columns : 1fr 1fr;
+    min-height            : 100vh;
+  }
+
+  .hero__right {
+    order  : 2;
+    height : auto;
+  }
+
+  .hero__left {
+    order      : 1;
+    padding    : 5rem 4.5rem 5rem 6rem;
+    min-height : 100vh;
+  }
+
+  .hero__logo {
+    width         : 148px;
+    height        : 148px;
+    margin-bottom : 2.4rem;
+  }
+
+  .hero__logo img { width: 138px; height: 138px; }
+
+  .hero__tagline {
+    font-size     : 1.4rem;
+    margin-bottom : 2.4rem;
+  }
+
+  .hero__actions    { margin-bottom: 3rem; }
+  .hero__meta       { padding-top: 1.8rem; gap: 18px; }
+  .hero__badge      { top: 24px; right: 24px; }
+
+  .hero__quote {
+    padding : 2.4rem 3rem;
+  }
+
+  .hero__quote blockquote { font-size: 1.1rem; }
+}
+
+/* Animation d'entrée hero (réduite si préférence) */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero__eyebrow { animation: fadeInUp .6s var(--ease) .05s both; }
+  .hero h1       { animation: fadeInUp .6s var(--ease) .15s both; }
+  .hero__tagline { animation: fadeInUp .6s var(--ease) .25s both; }
+  .hero__actions { animation: fadeInUp .6s var(--ease) .35s both; }
+  .hero__meta    { animation: fadeInUp .6s var(--ease) .45s both; }
+}
+
+/* ==========================================================================
+   12. BANDEAU PASSION
+   ========================================================================== */
+.passion {
+  background      : var(--miel);
+  padding         : 2.2rem var(--pad-x);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  gap             : 1.5rem;
+  flex-direction  : column;
+}
+
+.passion__line {
+  display    : none;
+  flex       : 1;
+  height     : 1px;
+  background : rgba(253, 250, 245, .4);
+  max-width  : 160px;
+}
+
+.passion__text {
+  font-family  : var(--font-display);
+  font-style   : italic;
+  font-weight  : 400;
+  font-size    : clamp(1.2rem, 3.5vw, 1.65rem);
+  color        : #fff;
+  text-align   : center;
+  letter-spacing: .02em;
+  margin       : 0;
+}
+
+@media (min-width: 769px) {
+  .passion {
+    padding        : 3rem var(--pad-x);
+    flex-direction : row;
+    gap            : 2.4rem;
+  }
+  .passion__line { display: block; }
+}
+
+/* ==========================================================================
+   13. NOTRE HISTOIRE — mobile d'abord
+   ========================================================================== */
+.story {
+  display               : grid;
+  grid-template-columns : 1fr;
+  gap                   : 2.5rem;
+  max-width             : var(--maxw);
+  margin                : 0 auto;
+  align-items           : center;
+}
+
+.story__photo   { position: relative; }
+.story__photo .uzone { aspect-ratio: 4 / 5; }
+
+/* Badge Google en coin */
+.story__google {
+  position      : absolute;
+  right         : 14px;
+  bottom        : -14px;
+  background    : var(--blanc-chaud);
+  padding       : 12px 16px;
+  border-radius : var(--r-block);
+  box-shadow    : 0 6px 22px rgba(46, 28, 10, .15);
+  display       : flex;
+  align-items   : center;
+  gap           : 10px;
+  border        : 1px solid var(--border-subtle);
+}
+
+.story__google .score {
+  font-family : var(--font-display);
+  font-weight : 400;
+  font-size   : 1.6rem;
+  color       : var(--fg-1);
+  line-height : 1;
+}
+
+.story__google .stars {
+  color       : var(--miel);
+  font-size   : .82rem;
+  line-height : 1;
+  margin-top  : 3px;
+}
+
+.story__google small {
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .54rem;
+  text-transform : uppercase;
+  letter-spacing : .22em;
+  color          : var(--fg-2);
+  display        : block;
+  margin-top     : 2px;
+}
+
+/* Texte de l'histoire */
+.story__copy h2 { margin: .8rem 0 1rem; }
+
+.story__copy p {
+  font-size   : .9rem;
+  line-height : 1.9;
+  margin      : 0 0 12px;
+  color       : var(--fg-2);
+}
+
+.story__signature {
+  margin-top  : 1.6rem;
+  font-family : var(--font-display);
+  font-style  : italic;
+  font-weight : 500;
+  font-size   : 1.3rem;
+  color       : var(--miel);
+  line-height : 1;
+}
+
+.story__signature + small {
+  display        : block;
+  margin-top     : 5px;
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .57rem;
+  text-transform : uppercase;
+  letter-spacing : .22em;
+  color          : var(--fg-2);
+}
+
+/* 4 piliers */
+.pillars {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  gap                   : 1.2rem;
+  margin-top            : 2rem;
+  padding-top           : 1.8rem;
+  border-top            : 1px solid var(--border-subtle);
+}
+
+.pillar {
+  display     : flex;
+  gap         : 12px;
+  align-items : flex-start;
+}
+
+.pillar > div strong {
+  display        : block;
+  font-family    : var(--font-display);
+  font-weight    : 500;
+  font-size      : 1rem;
+  color          : var(--fg-1);
+  line-height    : 1.2;
+  margin-bottom  : 3px;
+}
+
+.pillar > div span {
+  display     : block;
+  font-family : var(--font-text);
+  font-weight : 300;
+  font-size   : .76rem;
+  color       : var(--fg-2);
+  line-height : 1.55;
+}
+
+/* Badge Google — repositionné en dessous de la photo sur mobile */
+@media (max-width: 768px) {
+  .story__google {
+    position   : relative;
+    bottom     : auto;
+    right      : auto;
+    margin-top : 1rem;
+    margin-left: auto;
+  }
+}
+
+/* Desktop story */
+@media (min-width: 769px) {
+  .story {
+    grid-template-columns : 440px 1fr;
+    gap                   : 5rem;
+  }
+
+  .story__google {
+    right  : -14px;
+    bottom : -14px;
+  }
+
+  .story__google .score { font-size: 1.8rem; }
+
+  .story__copy h2     { font-size: clamp(2rem, 3.2vw, 2.7rem); margin: 1rem 0 1.2rem; }
+  .pillars            { gap: 1.5rem; margin-top: 2.6rem; padding-top: 2rem; }
+}
+
+/* ==========================================================================
+   14. SPÉCIALITÉS — mobile d'abord
+   ========================================================================== */
+.specs__grid {
+  display               : grid;
+  grid-template-columns : 1fr;
+  gap                   : 1rem;
+  max-width             : var(--maxw);
+  margin                : 0 auto;
+}
+
+/* Carte produit */
+.product {
+  background      : var(--blanc-chaud);
+  border          : 1px solid var(--border-subtle);
+  border-radius   : var(--r-block);
+  overflow        : hidden;
+  display         : flex;
+  flex-direction  : column;
+  transition      : border-color var(--t-mid);
+}
+
+.product:hover { border-color: rgba(184, 131, 42, .32); }
+
+.product__photo { height: 200px; position: relative; }
+
+.product__photo .uzone {
+  position      : absolute;
+  inset         : 0;
+  border-radius : 0;
+}
+
+.product__body {
+  padding  : 1.5rem;
+  display  : flex;
+  flex-direction: column;
+  flex     : 1;
+}
+
+.product__head {
+  display     : flex;
+  align-items : center;
+  gap         : 11px;
+  margin-bottom: .6rem;
+}
+
+.product__head h3 { margin: 0; flex: 1; }
+
+.product__desc {
+  font-family : var(--font-text);
+  font-weight : 300;
+  font-size   : .8rem;
+  line-height : 1.7;
+  color       : var(--fg-2);
+  margin      : 0 0 13px;
+  flex        : 1;
+}
+
+/* Carte signature — liseré doré à gauche */
+.product--signature { position: relative; }
+
+.product--signature::after {
+  content    : '';
+  position   : absolute;
+  left       : 0;
+  top        : 0;
+  bottom     : 0;
+  width      : 3px;
+  background : var(--miel);
+}
+
+/* Desktop : grille 3 colonnes */
+@media (min-width: 769px) {
+  .specs__grid {
+    grid-template-columns : repeat(3, 1fr);
+    gap                   : 1.6rem;
+  }
+}
+
+/* ==========================================================================
+   15. SALON DE THÉ — mobile d'abord
+   ========================================================================== */
+.salon {
+  display               : grid;
+  grid-template-columns : 1fr;
+  gap                   : 2.5rem;
+  max-width             : var(--maxw);
+  margin                : 0 auto;
+  align-items           : center;
+}
+
+.salon__copy h2 { color: var(--fg-on-dark-1); margin: .8rem 0 1rem; }
+.salon__copy h2 em { color: var(--miel-clair); font-style: italic; }
+
+.salon__copy p {
+  font-size   : .9rem;
+  line-height : 1.85;
+  margin      : 0 0 12px;
+  color       : var(--fg-on-dark-2);
+}
+
+.salon__features {
+  margin-top  : 2rem;
+  padding-top : 1.6rem;
+  border-top  : 1px solid var(--border-dark);
+  display     : flex;
+  flex-direction: column;
+  gap         : 1.2rem;
+}
+
+.salon__feat {
+  display     : flex;
+  gap         : 14px;
+  align-items : center;
+}
+
+.salon__feat > div strong {
+  display     : block;
+  font-family : var(--font-display);
+  font-weight : 400;
+  font-size   : 1.05rem;
+  color       : var(--fg-on-dark-1);
+  line-height : 1.25;
+}
+
+.salon__feat > div span {
+  display     : block;
+  font-family : var(--font-text);
+  font-weight : 300;
+  font-size   : .76rem;
+  color       : var(--fg-on-dark-2);
+}
+
+.salon__photo .uzone {
+  aspect-ratio : 4 / 5;
+  background   : rgba(212, 168, 85, .07);
+}
+
+/* Desktop salon */
+@media (min-width: 769px) {
+  .salon {
+    grid-template-columns : 1.05fr .95fr;
+    gap                   : 5rem;
+  }
+
+  .salon__copy h2  { font-size: clamp(2rem, 3.2vw, 2.7rem); margin: 1rem 0 1.2rem; }
+  .salon__features { margin-top: 2.4rem; padding-top: 1.8rem; }
+}
+
+/* ==========================================================================
+   16. AVIS CLIENTS — mobile d'abord
+   ========================================================================== */
+.reviews__score {
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
+  gap             : 6px;
+  margin-bottom   : 2.5rem;
+}
+
+.reviews__score .num {
+  font-family : var(--font-display);
+  font-weight : 300;
+  font-size   : 3.2rem;
+  color       : var(--fg-1);
+  line-height : 1;
+}
+
+.reviews__score .stars {
+  color          : var(--miel);
+  font-size      : 1rem;
+  letter-spacing : 3px;
+}
+
+.reviews__score small {
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .6rem;
+  text-transform : uppercase;
+  letter-spacing : .22em;
+  color          : var(--fg-2);
+}
+
+.reviews__grid {
+  display               : grid;
+  grid-template-columns : 1fr;
+  gap                   : 1rem;
+  max-width             : var(--maxw);
+  margin                : 0 auto;
+}
+
+/* Carte avis */
+.review {
+  display         : flex;
+  flex-direction  : column;
+  padding         : 1.8rem;
+  background      : var(--creme);
+  border-radius   : var(--r-block);
+}
+
+.review .stars {
+  color          : var(--miel);
+  font-size      : .88rem;
+  margin-bottom  : 1rem;
+  letter-spacing : 2px;
+}
+
+.review blockquote {
+  font-family : var(--font-display);
+  font-style  : italic;
+  font-weight : 300;
+  font-size   : 1.05rem;
+  line-height : 1.6;
+  color       : var(--fg-1);
+  margin      : 0;
+  flex        : 1;
+}
+
+/* Attribution alignée en bas — flex column + margin-top:auto */
+.review__attr {
+  margin-top  : auto;
+  padding-top : 1.4rem;
+  border-top  : 1px solid var(--border-subtle);
+  display     : flex;
+  align-items : center;
+  gap         : 12px;
+}
+
+/* Avatar initiale */
+.review__google {
+  width           : 36px;
+  height          : 36px;
+  border-radius   : var(--r-circle);
+  background      : var(--miel-pale);
+  border          : 1px solid rgba(184, 131, 42, .32);
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-family     : var(--font-display);
+  font-weight     : 500;
+  font-size       : 1.12rem;
+  color           : var(--miel);
+  flex-shrink     : 0;
+}
+
+.review__attr .meta { line-height: 1.3; }
+
+.review__attr .meta strong {
+  display     : block;
+  font-family : var(--font-display);
+  font-weight : 400;
+  font-size   : .92rem;
+  color       : var(--fg-1);
+}
+
+.review__attr .meta span {
+  font-family    : var(--font-text);
+  font-weight    : 400;
+  font-size      : .58rem;
+  color          : var(--fg-2);
+  text-transform : uppercase;
+  letter-spacing : .18em;
+}
+
+/* Desktop avis */
+@media (min-width: 769px) {
+  .reviews__score .num  { font-size: 3.8rem; }
+  .reviews__score       { margin-bottom: 3.5rem; }
+
+  .reviews__grid {
+    grid-template-columns : repeat(3, 1fr);
+    gap                   : 1.6rem;
+  }
+
+  .review { padding: 2.4rem 2.1rem; min-height: 340px; }
+}
+
+/* ==========================================================================
+   17. GALERIE — mobile d'abord
+   ========================================================================== */
+.gallery {
+  display               : grid;
+  grid-template-columns : repeat(2, 1fr);
+  gap                   : .6rem;
+  max-width             : var(--maxw);
+  margin                : 0 auto;
+}
+
+/* Hauteur fixe sur mobile pour toutes les cellules */
+.gallery .uzone { height: 160px; }
+
+/* Desktop : 4 colonnes avec cellule tall */
+@media (min-width: 769px) {
+  .gallery {
+    grid-template-columns : repeat(4, 1fr);
+    grid-template-rows    : 230px 230px;
+    gap                   : 1rem;
+  }
+
+  .gallery .uzone  { height: 100%; }
+  .gallery .tall   { grid-row: span 2; }
+}
+
+/* ==========================================================================
+   18. CONTACT & HORAIRES — mobile d'abord
+   ========================================================================== */
+.contact {
+  display               : grid;
+  grid-template-columns : 1fr;
+  gap                   : 2.5rem;
+  max-width             : var(--maxw);
+  margin                : 0 auto;
+  align-items           : start;
+}
+
+.contact h3 {
+  font-family : var(--font-display);
+  font-weight : 400;
+  font-size   : 1.4rem;
+  margin      : 0 0 1.2rem;
+}
+
+.contact h3 em { color: var(--miel); font-style: italic; }
+
+/* Tableau horaires */
+.hours {
+  background    : var(--creme);
+  padding       : 1.6rem;
+  border-radius : var(--r-block);
+}
+
+.hours__row {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : baseline;
+  padding         : .65rem 0;
+  border-bottom   : 1px dashed var(--border-subtle);
+}
+
+.hours__row:last-child { border-bottom: 0; }
+.hours__row.closed     { opacity: .42; }
+
+.hours__row .day {
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .68rem;
+  text-transform : uppercase;
+  letter-spacing : .18em;
+  color          : var(--fg-1);
+}
+
+.hours__row .time {
+  font-family          : var(--font-display);
+  font-weight          : 400;
+  font-size            : .95rem;
+  color                : var(--fg-1);
+  font-variant-numeric : tabular-nums;
+}
+
+.hours__row.closed .time {
+  color      : var(--fg-2);
+  font-style : italic;
+  font-size  : .85rem;
+}
+
+/* Infos contact */
+.contact__info ul {
+  margin          : 0 0 1.4rem;
+  display         : flex;
+  flex-direction  : column;
+  gap             : 1rem;
+}
+
+.contact__info li {
+  display     : flex;
+  gap         : 13px;
+  align-items : center;
+}
+
+.contact__info li .text strong {
+  display     : block;
+  font-family : var(--font-display);
+  font-weight : 400;
+  font-size   : .97rem;
+  color       : var(--fg-1);
+  line-height : 1.3;
+}
+
+.contact__info li .text span {
+  display     : block;
+  font-family : var(--font-text);
+  font-weight : 300;
+  font-size   : .76rem;
+  color       : var(--fg-2);
+  line-height : 1.55;
+}
+
+/* Pills de services */
+.contact__pills {
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : 7px;
+  margin    : 0 0 1.6rem;
+}
+
+/* Carte Google Maps */
+.contact__map {
+  border-radius : var(--r-block);
+  overflow      : hidden;
+  border        : 1px solid var(--border-subtle);
+}
+
+.contact__map iframe {
+  display : block;
+  width   : 100%;
+  height  : 200px;
+  border  : 0;
+}
+
+/* Desktop contact */
+@media (min-width: 769px) {
+  .contact {
+    grid-template-columns : 1fr 1.1fr;
+    gap                   : 5rem;
+  }
+
+  .contact h3 { font-size: 1.5rem; margin-bottom: 1.4rem; }
+  .hours      { padding: 2rem; }
+}
+
+/* ==========================================================================
+   19. FOOTER — mobile d'abord
+   ========================================================================== */
+.footer {
+  background : var(--brun-profond);
+  color      : var(--fg-on-dark-2);
+  padding    : 2rem var(--pad-x);
+}
+
+.footer__inner {
+  max-width       : var(--maxw);
+  margin          : 0 auto;
+  display         : flex;
+  flex-direction  : column;
+  align-items     : flex-start;
+  gap             : 1.6rem;
+}
+
+/* Marque footer */
+.footer__brand {
+  display     : flex;
+  align-items : center;
+  gap         : 13px;
+}
+
+.footer__brand img {
+  width         : 52px;
+  height        : 52px;
+  border-radius : var(--r-circle);
+  background    : var(--blanc-chaud);
+  padding       : 3px;
+}
+
+.footer__brand .text       { line-height: 1.2; }
+
+.footer__brand .text strong {
+  display     : block;
+  font-family : var(--font-display);
+  font-weight : 400;
+  font-size   : 1rem;
+  color       : var(--fg-on-dark-1);
+}
+
+.footer__brand .text small {
+  display        : block;
+  font-family    : var(--font-text);
+  font-weight    : 500;
+  font-size      : .54rem;
+  text-transform : uppercase;
+  letter-spacing : .28em;
+  color          : var(--miel-clair);
+  margin-top     : 3px;
+}
+
+/* Liens footer */
+.footer__links {
+  display   : flex;
+  gap       : 1rem;
+  flex-wrap : wrap;
+}
+
+.footer__links a {
+  font-family    : var(--font-text);
+  font-weight    : 400;
+  font-size      : .68rem;
+  text-transform : uppercase;
+  letter-spacing : .2em;
+  color          : var(--fg-on-dark-2);
+  transition     : color var(--t-fast);
+}
+
+.footer__links a:hover { color: var(--miel-clair); }
+
+/* Copyright + slogan */
+.footer__right { line-height: 1.4; }
+
+.footer__right .quote {
+  font-family : var(--font-display);
+  font-style  : italic;
+  font-weight : 400;
+  font-size   : .98rem;
+  color       : var(--miel-clair);
+  display     : block;
+}
+
+.footer__right small {
+  font-family    : var(--font-text);
+  font-weight    : 400;
+  font-size      : .6rem;
+  text-transform : uppercase;
+  letter-spacing : .18em;
+  color          : rgba(207, 193, 168, .5);
+  display        : block;
+  margin-top     : 5px;
+}
+
+/* Desktop footer */
+@media (min-width: 769px) {
+  .footer { padding: 2.4rem var(--pad-x); }
+
+  .footer__inner {
+    flex-direction  : row;
+    align-items     : center;
+    justify-content : space-between;
+    gap             : 2rem;
+    flex-wrap       : wrap;
+  }
+
+  .footer__brand img { width: 58px; height: 58px; }
+  .footer__links     { gap: 1.8rem; flex-wrap: nowrap; }
+  .footer__right     { text-align: right; }
+}
+
+/* ==========================================================================
+   20. AJUSTEMENTS TABLETTE (769px – 1100px)
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1100px) {
+  :root {
+    --pad-x : 2.5rem;
+    --pad-y : 4rem;
+  }
+
+  .hero__left       { padding: 4rem 2.5rem; }
+  .specs__grid      { grid-template-columns: repeat(2, 1fr); }
+  .story            { grid-template-columns: 360px 1fr; gap: 3rem; }
+  .salon            { gap: 3rem; }
+}

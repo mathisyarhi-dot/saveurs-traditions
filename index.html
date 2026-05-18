@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO -->
+  <title>Saveurs &amp; Traditions — Boulangerie · Pâtisserie · Salon de thé · Fontenay-le-Fleury</title>
+  <meta name="description" content="Boulangerie artisanale, pâtisseries fines, trompe-l'œil et salon de thé à Fontenay-le-Fleury. Ouvert du mardi au dimanche, 6 h 30 – 20 h 00." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+  />
+
+  <!-- Tabler Icons v3.19.0 (webfont) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =====================================================================
+       NAV — sticky, blur backdrop
+       ===================================================================== -->
+  <header class="site-nav" role="banner">
+    <div class="nav__inner">
+
+      <!-- Marque -->
+      <a href="#top" class="nav__brand" aria-label="Saveurs &amp; Traditions — retour en haut">
+        <img src="assets/logo.png" alt="Logo Saveurs &amp; Traditions" width="44" height="44" />
+        <span class="name">Saveurs &amp; Traditions</span>
+      </a>
+
+      <!-- Liens de navigation -->
+      <nav id="nav-links" class="nav__links" aria-label="Navigation principale" aria-hidden="true">
+        <a href="#produits">Nos produits</a>
+        <a href="#salon">Salon de thé</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Actions droite : CTA + burger -->
+      <div class="nav__actions">
+        <a href="tel:0134624891" class="nav__cta" aria-label="Appeler le 01 34 62 48 91">
+          <i class="ti ti-phone" aria-hidden="true"></i>
+          <span class="nav__cta-label">01 34 62 48 91</span>
+        </a>
+        <button
+          id="burger"
+          class="burger"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       CONTENU PRINCIPAL
+       ===================================================================== -->
+  <main id="contenu-principal">
+
+    <!-- ==================================================================
+         2 — HERO
+         ================================================================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+
+      <!-- Colonne gauche : informations -->
+      <div class="hero__left">
+        <div class="hero__logo">
+          <img src="assets/logo.png" alt="Logo Saveurs &amp; Traditions" width="138" height="138" />
+        </div>
+
+        <span class="hero__eyebrow">Boulangerie · Pâtisserie · Salon de thé</span>
+
+        <h1 id="hero-title">
+          Du pain, des pâtisseries<br />et beaucoup de <em>passion</em>.
+        </h1>
+
+        <p class="hero__tagline">
+          « Une vraie boutique de quartier qui mérite une vitrine à la hauteur
+          de ses produits — chaude, sobre, sincère. »
+        </p>
+
+        <div class="hero__actions">
+          <a href="#produits" class="btn btn--primary">
+            <i class="ti ti-bread" aria-hidden="true"></i>Voir nos spécialités
+          </a>
+          <a href="#contact" class="btn btn--glass">
+            <i class="ti ti-map-pin" aria-hidden="true"></i>Venir nous voir
+          </a>
+        </div>
+
+        <ul class="hero__meta" aria-label="Informations pratiques">
+          <li>
+            <span class="icon-circle icon-circle--dark" aria-hidden="true">
+              <i class="ti ti-clock"></i>
+            </span>
+            <div>
+              <span class="label">Horaires</span>
+              <span class="value">Mardi au dimanche · 6 h 30 — 20 h 00 · Fermé le lundi</span>
+            </div>
+          </li>
+          <li>
+            <span class="icon-circle icon-circle--dark" aria-hidden="true">
+              <i class="ti ti-map-pin"></i>
+            </span>
+            <div>
+              <span class="label">Adresse</span>
+              <span class="value">12 Av. Jean Lurçat, 78330 Fontenay-le-Fleury · En face du commissariat</span>
+            </div>
+          </li>
+          <li>
+            <span class="icon-circle icon-circle--dark" aria-hidden="true">
+              <i class="ti ti-phone"></i>
+            </span>
+            <div>
+              <span class="label">Téléphone</span>
+              <span class="value">01 34 62 48 91</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Colonne droite : photo + badge + citation -->
+      <div class="hero__right">
+        <label class="uzone uzone--dark" aria-label="Ajouter une photo hero">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <i class="ti ti-bread"></i>
+            <span class="label">Photo hero — vitrine ou pain frais</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+        <!-- Badge ouvert / fermé (mis à jour par JS) -->
+        <span class="hero__badge" id="open-badge" role="status" aria-live="polite">● Ouvert</span>
+
+        <!-- Citation avis Google en overlay -->
+        <figure class="hero__quote" aria-label="Avis client mis en avant">
+          <div class="stars" aria-label="5 étoiles">
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+          </div>
+          <blockquote>
+            « Un brunch beau, généreux et très bon. L'accueil est chaleureux
+            et le propriétaire d'une gentillesse rare. »
+          </blockquote>
+          <figcaption>
+            <cite>4,7 / 5 — Plus de 490 avis Google</cite>
+          </figcaption>
+        </figure>
+      </div>
+
+    </section>
+
+    <!-- ==================================================================
+         3 — BANDEAU PASSION
+         ================================================================== -->
+    <div class="passion" role="complementary" aria-label="Slogan de la maison">
+      <span class="passion__line" aria-hidden="true"></span>
+      <p class="passion__text">« Du pain, des pâtisseries et beaucoup de passion. »</p>
+      <span class="passion__line" aria-hidden="true"></span>
+    </div>
+
+    <!-- ==================================================================
+         4 — NOTRE HISTOIRE
+         ================================================================== -->
+    <section class="section section--creme" id="histoire" aria-labelledby="histoire-title">
+      <div class="section__head">
+        <span class="eyebrow">Notre maison</span>
+        <h2 id="histoire-title">
+          Une boulangerie de quartier, faite avec <em class="acc">amour</em>.
+        </h2>
+        <p class="ornament" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</p>
+      </div>
+
+      <div class="story">
+
+        <!-- Photo uploadable + badge Google -->
+        <div class="story__photo">
+          <label class="uzone" aria-label="Ajouter une photo de l'équipe ou de la boutique">
+            <input type="file" accept="image/*" aria-label="Choisir une photo" />
+            <div class="img-prev" role="presentation"></div>
+            <div class="uzone__empty" aria-hidden="true">
+              <i class="ti ti-camera"></i>
+              <span class="label">Photo de l'équipe ou de la boutique</span>
+            </div>
+            <div class="uzone__hover" aria-hidden="true">
+              <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+            </div>
+          </label>
+
+          <div class="story__google" aria-label="Note Google : 4,7 sur 5">
+            <div>
+              <div class="score" aria-hidden="true">4,7</div>
+              <div class="stars" aria-label="4,7 étoiles sur 5">
+                <i class="ti ti-star-filled" aria-hidden="true"></i>
+                <i class="ti ti-star-filled" aria-hidden="true"></i>
+                <i class="ti ti-star-filled" aria-hidden="true"></i>
+                <i class="ti ti-star-filled" aria-hidden="true"></i>
+                <i class="ti ti-star-half-filled" aria-hidden="true"></i>
+              </div>
+              <small>490+ avis Google</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texte de l'histoire -->
+        <div class="story__copy">
+          <span class="eyebrow">L'histoire</span>
+          <h2>
+            Le pain qu'on faisait <em class="acc">chez vos grands-parents</em>. En mieux.
+          </h2>
+          <p>
+            À Fontenay-le-Fleury, en face du commissariat, notre boutique ouvre ses portes
+            du mardi au dimanche dès 6 h 30. Tout y est fait sur place, dans la nuit
+            qui précède : pétrissage long, levain naturel, cuisson sur sole.
+          </p>
+          <p>
+            Sur les vitrines, on trouve nos pains du jour, des viennoiseries dorées,
+            des pâtisseries fines — et nos désormais célèbres trompe-l'œil, qui bluffent
+            l'œil avant de ravir le palais. Côté salon de thé, on s'installe pour un café,
+            un déjeuner ou un brunch, dans une salle pensée pour qu'on prenne son temps.
+          </p>
+
+          <p class="story__signature">Du pain, des pâtisseries et beaucoup de passion.</p>
+          <small>L'équipe Saveurs &amp; Traditions</small>
+
+          <!-- 4 piliers -->
+          <div class="pillars">
+            <div class="pillar">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-tools-kitchen-2"></i></span>
+              <div>
+                <strong>Artisanal</strong>
+                <span>Pétri, façonné et cuit sur place chaque matin.</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-leaf"></i></span>
+              <div>
+                <strong>Halal</strong>
+                <span>Boulangerie certifiée halal — produits soigneusement sourcés.</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-coffee"></i></span>
+              <div>
+                <strong>Salon de thé</strong>
+                <span>Café, brunch, déjeuner — on s'assoit et on prend le temps.</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-heart"></i></span>
+              <div>
+                <strong>Passion</strong>
+                <span>Une équipe souriante qui aime ce qu'elle fait. Ça se sent.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         5 — NOS SPÉCIALITÉS
+         ================================================================== -->
+    <section class="section" id="produits" aria-labelledby="produits-title">
+      <div class="section__head">
+        <span class="eyebrow">Nos spécialités</span>
+        <h2 id="produits-title">Ce qu'on fait, on le fait <em class="acc">bien</em>.</h2>
+        <p>
+          Six familles de produits, toutes pétries, façonnées et cuites dans notre fournil.
+          Du pain de tous les jours aux pièces signature.
+        </p>
+      </div>
+
+      <div class="specs__grid">
+
+        <!-- Pains artisanaux -->
+        <article class="product">
+          <div class="product__photo">
+            <label class="uzone" aria-label="Ajouter une photo — Pains artisanaux">
+              <input type="file" accept="image/*" aria-label="Choisir une photo" />
+              <div class="img-prev" role="presentation"></div>
+              <div class="uzone__empty" aria-hidden="true">
+                <i class="ti ti-bread"></i><span class="label">Pains artisanaux</span>
+              </div>
+              <div class="uzone__hover" aria-hidden="true">
+                <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+              </div>
+            </label>
+          </div>
+          <div class="product__body">
+            <div class="product__head">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-bread"></i></span>
+              <h3>Pains artisanaux</h3>
+            </div>
+            <p class="product__desc">
+              Baguette tradition, pain au levain, pain d'épeautre — cuits sur place, croustillants à souhait.
+            </p>
+            <div><span class="pill"><i class="ti ti-flame" aria-hidden="true"></i>Fait maison</span></div>
+          </div>
+        </article>
+
+        <!-- Viennoiseries -->
+        <article class="product">
+          <div class="product__photo">
+            <label class="uzone" aria-label="Ajouter une photo — Viennoiseries">
+              <input type="file" accept="image/*" aria-label="Choisir une photo" />
+              <div class="img-prev" role="presentation"></div>
+              <div class="uzone__empty" aria-hidden="true">
+                <img class="icon-img" src="assets/croissant.svg" alt="" />
+                <span class="label">Viennoiseries</span>
+              </div>
+              <div class="uzone__hover" aria-hidden="true">
+                <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+              </div>
+            </label>
+          </div>
+          <div class="product__body">
+            <div class="product__head">
+              <span class="icon-circle" aria-hidden="true">
+                <img class="icon-img" src="assets/croissant.svg" alt="" />
+              </span>
+              <h3>Viennoiseries</h3>
+            </div>
+            <p class="product__desc">
+              Croissants dorés, pains au chocolat, chaussons — cuits frais dès l'ouverture à 6 h 30.
+            </p>
+            <div><span class="pill"><i class="ti ti-sun" aria-hidden="true"></i>Dès 6 h 30</span></div>
+          </div>
+        </article>
+
+        <!-- Pâtisseries fines -->
+        <article class="product">
+          <div class="product__photo">
+            <label class="uzone" aria-label="Ajouter une photo — Pâtisseries fines">
+              <input type="file" accept="image/*" aria-label="Choisir une photo" />
+              <div class="img-prev" role="presentation"></div>
+              <div class="uzone__empty" aria-hidden="true">
+                <i class="ti ti-cake"></i><span class="label">Pâtisseries fines</span>
+              </div>
+              <div class="uzone__hover" aria-hidden="true">
+                <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+              </div>
+            </label>
+          </div>
+          <div class="product__body">
+            <div class="product__head">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-cake"></i></span>
+              <h3>Pâtisseries fines</h3>
+            </div>
+            <p class="product__desc">
+              Tartes aux fruits, éclairs, entremets — une vitrine à laquelle il est difficile de résister.
+            </p>
+            <div><span class="pill"><i class="ti ti-shopping-bag" aria-hidden="true"></i>Commandes sur place</span></div>
+          </div>
+        </article>
+
+        <!-- Trompe-l'œil — spécialité signature -->
+        <article class="product product--signature">
+          <div class="product__photo">
+            <label class="uzone" aria-label="Ajouter une photo — Trompe-l'œil">
+              <input type="file" accept="image/*" aria-label="Choisir une photo" />
+              <div class="img-prev" role="presentation"></div>
+              <div class="uzone__empty" aria-hidden="true">
+                <i class="ti ti-sparkles"></i><span class="label">Trompe-l'œil — signature</span>
+              </div>
+              <div class="uzone__hover" aria-hidden="true">
+                <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+              </div>
+            </label>
+          </div>
+          <div class="product__body">
+            <div class="product__head">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-sparkles"></i></span>
+              <h3>Trompe-l'œil</h3>
+            </div>
+            <p class="product__desc">
+              Notre spécialité signature — des créations qui bluffent l'œil avant de ravir le palais.
+            </p>
+            <div>
+              <span class="pill" style="background:var(--brun-profond); color:var(--miel-clair)">
+                <i class="ti ti-sparkles" aria-hidden="true" style="color:var(--miel-clair)"></i>Spécialité signature
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Snacking & déjeuner -->
+        <article class="product">
+          <div class="product__photo">
+            <label class="uzone" aria-label="Ajouter une photo — Snacking &amp; déjeuner">
+              <input type="file" accept="image/*" aria-label="Choisir une photo" />
+              <div class="img-prev" role="presentation"></div>
+              <div class="uzone__empty" aria-hidden="true">
+                <img class="icon-img" src="assets/sandwich.svg" alt="" />
+                <span class="label">Snacking &amp; déjeuner</span>
+              </div>
+              <div class="uzone__hover" aria-hidden="true">
+                <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+              </div>
+            </label>
+          </div>
+          <div class="product__body">
+            <div class="product__head">
+              <span class="icon-circle" aria-hidden="true">
+                <img class="icon-img" src="assets/sandwich.svg" alt="" />
+              </span>
+              <h3>Snacking &amp; déjeuner</h3>
+            </div>
+            <p class="product__desc">
+              Sandwichs chauds ou froids, formules midi préparées sur place. Tickets restaurant acceptés.
+            </p>
+            <div><span class="pill"><i class="ti ti-ticket" aria-hidden="true"></i>Tickets restau</span></div>
+          </div>
+        </article>
+
+        <!-- Petit-déjeuner & brunch -->
+        <article class="product">
+          <div class="product__photo">
+            <label class="uzone" aria-label="Ajouter une photo — Petit-déjeuner &amp; brunch">
+              <input type="file" accept="image/*" aria-label="Choisir une photo" />
+              <div class="img-prev" role="presentation"></div>
+              <div class="uzone__empty" aria-hidden="true">
+                <i class="ti ti-cup"></i><span class="label">Petit-déjeuner &amp; brunch</span>
+              </div>
+              <div class="uzone__hover" aria-hidden="true">
+                <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+              </div>
+            </label>
+          </div>
+          <div class="product__body">
+            <div class="product__head">
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-cup"></i></span>
+              <h3>Petit-déjeuner &amp; brunch</h3>
+            </div>
+            <p class="product__desc">
+              Un café, des viennoiseries, un plateau généreux — tout pour bien commencer la journée.
+            </p>
+            <div><span class="pill"><i class="ti ti-armchair" aria-hidden="true"></i>Sur place</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         6 — SALON DE THÉ
+         ================================================================== -->
+    <section class="section section--dark" id="salon" aria-labelledby="salon-title">
+      <div class="salon">
+
+        <div class="salon__copy">
+          <span class="eyebrow">Salon de thé</span>
+          <h2 id="salon-title">Un café, un déjeuner, un moment <em>à soi</em>.</h2>
+          <p>
+            Notre salle se prête au matin pour un petit-déjeuner tranquille, au midi
+            pour une formule rapide, à l'après-midi pour une part de tarte et un thé.
+            Café de torréfacteur, thés sélectionnés à la feuille.
+          </p>
+          <p>Ouvert dès 6 h 30 — du mardi au dimanche.</p>
+
+          <div class="salon__features">
+            <div class="salon__feat">
+              <span class="icon-circle icon-circle--dark" aria-hidden="true"><i class="ti ti-coffee"></i></span>
+              <div>
+                <strong>Café &amp; thé de qualité</strong>
+                <span>Torréfaction de spécialité, thés à la feuille.</span>
+              </div>
+            </div>
+            <div class="salon__feat">
+              <span class="icon-circle icon-circle--dark" aria-hidden="true"><i class="ti ti-sofa"></i></span>
+              <div>
+                <strong>Installation sur place</strong>
+                <span>Une salle confortable pour s'asseoir et prendre le temps.</span>
+              </div>
+            </div>
+            <div class="salon__feat">
+              <span class="icon-circle icon-circle--dark" aria-hidden="true"><i class="ti ti-clock"></i></span>
+              <div>
+                <strong>Ouvert dès 6 h 30</strong>
+                <span>Du mardi au dimanche, jusqu'à 20 h 00.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="salon__photo">
+          <label class="uzone uzone--dark" aria-label="Ajouter une photo du salon de thé">
+            <input type="file" accept="image/*" aria-label="Choisir une photo" />
+            <div class="img-prev" role="presentation"></div>
+            <div class="uzone__empty" aria-hidden="true">
+              <i class="ti ti-cup"></i><span class="label">Photo du salon de thé</span>
+            </div>
+            <div class="uzone__hover" aria-hidden="true">
+              <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+            </div>
+          </label>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         7 — AVIS CLIENTS
+         ================================================================== -->
+    <section class="section" id="avis" aria-labelledby="avis-title">
+      <div class="section__head">
+        <span class="eyebrow">Avis clients</span>
+        <h2 id="avis-title">Ce que disent <em class="acc">les Fontenaisiens</em>.</h2>
+      </div>
+
+      <!-- Score global -->
+      <div class="reviews__score" aria-label="Note globale Google : 4,7 sur 5">
+        <div class="num" aria-hidden="true">4,7</div>
+        <div class="stars" aria-label="4,7 étoiles sur 5">
+          <i class="ti ti-star-filled" aria-hidden="true"></i>
+          <i class="ti ti-star-filled" aria-hidden="true"></i>
+          <i class="ti ti-star-filled" aria-hidden="true"></i>
+          <i class="ti ti-star-filled" aria-hidden="true"></i>
+          <i class="ti ti-star-half-filled" aria-hidden="true"></i>
+        </div>
+        <small>Plus de 490 avis Google</small>
+      </div>
+
+      <!-- 3 cartes d'avis -->
+      <div class="reviews__grid">
+
+        <article class="review" aria-label="Avis de Camille D.">
+          <div class="stars" aria-label="5 étoiles">
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+          </div>
+          <blockquote>
+            « Boulangerie élégante avec des pains spéciaux de très bonne qualité —
+            belle maîtrise des fermentations au levain. Salon de thé élégamment
+            décoré, accueil chaleureux. »
+          </blockquote>
+          <div class="review__attr">
+            <span class="review__google" aria-hidden="true">C</span>
+            <div class="meta">
+              <strong>Camille D.</strong>
+              <span>Avis Google Maps</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review" aria-label="Avis de Yacine M.">
+          <div class="stars" aria-label="5 étoiles">
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+          </div>
+          <blockquote>
+            « Tout est fait maison et ça se sent. Pâtisseries, sandwichs, pain —
+            un sans-faute. Le concept alliant boulangerie et salon de café
+            est juste incroyable. »
+          </blockquote>
+          <div class="review__attr">
+            <span class="review__google" aria-hidden="true">Y</span>
+            <div class="meta">
+              <strong>Yacine M.</strong>
+              <span>Avis Google Maps</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review" aria-label="Avis de Sophie L.">
+          <div class="stars" aria-label="5 étoiles">
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+            <i class="ti ti-star-filled" aria-hidden="true"></i>
+          </div>
+          <blockquote>
+            « Un brunch beau, généreux et très bon. L'accueil est chaleureux
+            et le propriétaire d'une gentillesse rare. On sent la passion
+            apportée à chaque détail. »
+          </blockquote>
+          <div class="review__attr">
+            <span class="review__google" aria-hidden="true">S</span>
+            <div class="meta">
+              <strong>Sophie L.</strong>
+              <span>Avis Google Maps</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         8 — GALERIE
+         ================================================================== -->
+    <section class="section section--creme" id="galerie" aria-labelledby="galerie-title">
+      <div class="section__head">
+        <span class="eyebrow">Galerie</span>
+        <h2 id="galerie-title">Quelques images de la <em class="acc">maison</em>.</h2>
+        <p class="ornament" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</p>
+      </div>
+
+      <div class="gallery" aria-label="Galerie photos">
+
+        <label class="uzone tall" aria-label="Ajouter la photo principale">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <i class="ti ti-photo"></i><span class="label">Photo principale</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+        <label class="uzone" aria-label="Ajouter une photo — Pains">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <i class="ti ti-bread"></i><span class="label">Pains</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+        <label class="uzone" aria-label="Ajouter une photo — Viennoiseries">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <img class="icon-img" src="assets/croissant.svg" alt="" />
+            <span class="label">Viennoiseries</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+        <label class="uzone" aria-label="Ajouter une photo — Pâtisseries">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <i class="ti ti-cake"></i><span class="label">Pâtisseries</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+        <label class="uzone" aria-label="Ajouter une photo — Trompe-l'œil">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <i class="ti ti-sparkles"></i><span class="label">Trompe-l'œil</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+        <label class="uzone" aria-label="Ajouter une photo — Salon de thé">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <i class="ti ti-cup"></i><span class="label">Salon de thé</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+        <label class="uzone" aria-label="Ajouter une photo — Ambiance">
+          <input type="file" accept="image/*" aria-label="Choisir une photo" />
+          <div class="img-prev" role="presentation"></div>
+          <div class="uzone__empty" aria-hidden="true">
+            <i class="ti ti-camera"></i><span class="label">Ambiance</span>
+          </div>
+          <div class="uzone__hover" aria-hidden="true">
+            <i class="ti ti-photo-plus"></i><span>Ajouter une photo</span>
+          </div>
+        </label>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         9 — HORAIRES & CONTACT
+         ================================================================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section__head">
+        <span class="eyebrow">Contact</span>
+        <h2 id="contact-title">Venez nous <em class="acc">rencontrer</em>.</h2>
+      </div>
+
+      <div class="contact">
+
+        <!-- Horaires -->
+        <div>
+          <h3>Nos <em>horaires</em></h3>
+          <div class="hours" aria-label="Horaires d'ouverture">
+            <div class="hours__row closed" aria-label="Lundi : fermé">
+              <span class="day">Lundi</span>
+              <span class="time">Fermé</span>
+            </div>
+            <div class="hours__row" aria-label="Mardi : 6 h 30 à 20 h 00">
+              <span class="day">Mardi</span><span class="time">6 h 30 — 20 h 00</span>
+            </div>
+            <div class="hours__row" aria-label="Mercredi : 6 h 30 à 20 h 00">
+              <span class="day">Mercredi</span><span class="time">6 h 30 — 20 h 00</span>
+            </div>
+            <div class="hours__row" aria-label="Jeudi : 6 h 30 à 20 h 00">
+              <span class="day">Jeudi</span><span class="time">6 h 30 — 20 h 00</span>
+            </div>
+            <div class="hours__row" aria-label="Vendredi : 6 h 30 à 20 h 00">
+              <span class="day">Vendredi</span><span class="time">6 h 30 — 20 h 00</span>
+            </div>
+            <div class="hours__row" aria-label="Samedi : 6 h 30 à 20 h 00">
+              <span class="day">Samedi</span><span class="time">6 h 30 — 20 h 00</span>
+            </div>
+            <div class="hours__row" aria-label="Dimanche : 6 h 30 à 20 h 00">
+              <span class="day">Dimanche</span><span class="time">6 h 30 — 20 h 00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infos contact -->
+        <div class="contact__info">
+          <h3>Nous <em>trouver</em></h3>
+
+          <ul aria-label="Coordonnées">
+            <li>
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-map-pin"></i></span>
+              <div class="text">
+                <strong>12 Avenue Jean Lurçat, 78330 Fontenay-le-Fleury</strong>
+                <span>En face du commissariat · Parking proche</span>
+              </div>
+            </li>
+            <li>
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-phone"></i></span>
+              <div class="text">
+                <strong><a href="tel:0134624891" aria-label="Appeler le 01 34 62 48 91">01 34 62 48 91</a></strong>
+                <span>Pour vos commandes et renseignements</span>
+              </div>
+            </li>
+            <li>
+              <span class="icon-circle" aria-hidden="true"><i class="ti ti-brand-instagram"></i></span>
+              <div class="text">
+                <strong>
+                  <a
+                    href="https://instagram.com/saveurs_et_traditions78"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram @saveurs_et_traditions78 (ouvre un nouvel onglet)"
+                  >@saveurs_et_traditions78</a>
+                </strong>
+                <span>Les nouveautés et l'envers du fournil</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Services acceptés -->
+          <div class="contact__pills" aria-label="Services acceptés">
+            <span class="pill"><i class="ti ti-credit-card" aria-hidden="true"></i>CB &amp; NFC</span>
+            <span class="pill"><i class="ti ti-ticket" aria-hidden="true"></i>Tickets restau</span>
+            <span class="pill"><i class="ti ti-wheelchair" aria-hidden="true"></i>Accès PMR</span>
+            <span class="pill"><i class="ti ti-parking" aria-hidden="true"></i>Parking proche</span>
+            <span class="pill"><i class="ti ti-leaf" aria-hidden="true"></i>Halal</span>
+          </div>
+
+          <!-- Google Maps -->
+          <div class="contact__map">
+            <iframe
+              src="https://www.google.com/maps?q=12%20Avenue%20Jean%20Lur%C3%A7at%2C%2078330%20Fontenay-le-Fleury&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+              title="Plan — Saveurs &amp; Traditions, 12 Av. Jean Lurçat, Fontenay-le-Fleury"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- fin #contenu-principal -->
+
+  <!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Logo Saveurs &amp; Traditions" width="58" height="58" />
+        <div class="text">
+          <strong>Saveurs &amp; Traditions</strong>
+          <small>Fontenay-le-Fleury · 78330</small>
+        </div>
+      </div>
+
+      <nav class="footer__links" aria-label="Liens rapides">
+        <a href="#histoire">L'histoire</a>
+        <a href="#produits">Nos produits</a>
+        <a href="#salon">Salon de thé</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="footer__right">
+        <span class="quote">« Du pain, des pâtisseries et beaucoup de passion. »</span>
+        <small>© 2026 Saveurs &amp; Traditions · Tous droits réservés</small>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
